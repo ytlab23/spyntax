@@ -25,7 +25,12 @@ SECRET_KEY = "django-insecure-tbrtszg*rrtgoldc6m&r!s-trd)ov0#_(c02xs@jo2896e)dvx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "*.herokuapp.com/", "sypntax.org"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "*.herokuapp.com",
+    "sypntax.org",
+    "spyntax-app.herokuapp.com",
+]
 
 
 # Application definition
@@ -74,10 +79,19 @@ WSGI_APPLICATION = "backend.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}
+# }
 DATABASES = {
-    "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "smart_spyntax",
+        "USER": "smart_spyntax",
+        "PASSWORD": "C5CcWSSXMjhTX8k",
+        "HOST": "162.213.121.208",
+        "PORT": "3306",
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
