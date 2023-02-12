@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SPYNTAX</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	font-family: 'Special Elite', cursive;
+	background: #fffdf5;
+	color: #3f3f5a;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+}
+
+blockquote {
+	font-weight: 100;
+	font-size: 2rem;
+	max-width: 600px;
+	line-height: 1.4;
+	position: relative;
+	margin: 0;
+	padding: .5rem;
+}
+
+#o:before,
+#o:after {
+	position: absolute;
+	color: #f1efe6;
+	font-size: 8rem;
+	width: 4rem;
+	height: 4rem;
+}
+
+#o:before {
+	content: '“';
+	left: -5rem;
+	top: -2rem;
+}
+
+ #o:after {
+	content: '”';
+	right: -5rem;
+	bottom: 1rem;
+}
+#copy-btn:hover{
+     cursor:pointer;
+}
+ #pop-up {
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    opacity:0%;
+    transform: translate(-50%, -50%);
+    transition: opacity 1000ms ease;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+cite {
+	line-height: 3;
+	text-align: left;
+}
+</style>
+</head>
+<body >
+
+	<div id="pop-up">Copied to Clipboard</div>
+<div id="text">
+<section class="wrapper">
+
+  {%if text%}
+ <blockquote id="content" ><div id="o">{{text}}</div><i id="copy-btn" class="fa fa-copy" style="padding-left: 90%;color: #767d9f;"></i></blockquote>
+  {%else%}
+	<blockquote id="content" >lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam eveniet dicta laborum ut necessitatibus. Pariatur, illum. Consequatur porro nemo voluptatum similique nam, perspiciatis velit accusamus exercitationem optio necessitatibus libero odio?
+	<i id="copy-btn" class="fa fa-copy"></blockquote>
+  {%endif%}
+</section>
+</div>
+<script>
+  const copyBtn = document.querySelector('#copy-btn');
+  const content = document.querySelector('#content');
+   const leyuskc = document.querySelector('#pop-up');
+  copyBtn.addEventListener('click', function() {
+    navigator.clipboard.writeText(content.textContent).then(function() {
+    	leyuskc.innerText = "Copied to Clipboard"
+    	leyuskc.style.opacity = '100%';
+      setTimeout(function() {
+        leyuskc.style.opacity='0%';
+      }, 1000);
+    }, function(err) {
+    	leyuskc.innerText = "Copy Permission was denied Please copy manually-leyuskc"
+      leyuskc.style.opacity = '100%';
+      setTimeout(function() {
+        leyuskc.style.opacity='0%';
+      }, 1000);
+    });
+  });
+</script>
+
+</body>
+</html>

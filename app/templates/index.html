@@ -1,0 +1,103 @@
+<!doctype HTML>
+<html lang="en" class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UrlsPages</title>
+  <style>
+  body {
+  padding-top: 300px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Helvetica, Arial, Ubuntu, sans-serif,
+                "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+display: flex;
+justify-content: center;
+color: gray;
+background-color: #000;
+  }
+body::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+	background-color: #000;
+}
+
+body::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #000;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: orangered;
+}
+a { color: inherit; text-decoration: inherit }
+ul {
+  counter-reset: index;  
+  padding: 0;
+  max-width: 300px;
+}
+*{
+	text-transform: uppercase
+}
+/* List element */
+li {
+  counter-increment: index; 
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  box-sizing: border-box;
+  font-weight: 600;
+    font-size: 2rem;
+}
+
+
+/* Element counter */
+li::before {
+  content: counters(index, ".", decimal-leading-zero);
+  font-size: 2rem;
+  text-align: right;
+  font-weight: bold;
+  min-width: 50px;
+  padding-right: 12px;
+  font-variant-numeric: tabular-nums;
+  align-self: flex-start;
+  background-image: linear-gradient(to bottom, aquamarine, orangered);
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+li + li {
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="paper">
+    <h1>List OF Most recent Urls</h1>
+    <p>Choose AnyOne</p>
+  </div>
+
+  <ul>
+  	{%if urls%}
+  	{%for i in urls%}
+  	<a href="{% url 'pages' i.url %}" target="_blank">
+    <li>
+        {{i.url}}
+    </li>
+    </a>
+    {%endfor%}
+    {%else%}
+    <li>
+	No Urls Right Now
+    </li>
+    {%endif%}
+  </ul>
+</div>	
+
+</body>
+</html>
