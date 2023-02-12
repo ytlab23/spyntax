@@ -1,1 +1,1 @@
-web: gunicorn leyuskc.wsgi
+web: gunicorn backend.wsgi
