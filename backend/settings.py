@@ -30,6 +30,8 @@ ALLOWED_HOSTS = [
     "*.herokuapp.com",
     "sypntax.org",
     "spyntax-app.herokuapp.com",
+    "spyntax.org",
+    "*",
 ]
 
 
