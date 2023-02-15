@@ -11,7 +11,7 @@ class Url(models.Model):
 
 class Text(models.Model):
     url = models.ForeignKey(Url, on_delete=models.CASCADE)
-    text = models.CharField(max_length=20000)
+    text = models.CharField(max_length=5000)
 
     def __str__(self):
         return self.text
