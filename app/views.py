@@ -2,7 +2,7 @@ from .models import Url, Text
 from django.http import Http404
 from django.shortcuts import render, HttpResponse
 from random import choice
-from spyntax import *
+import spintax
 
 
 # Create your views here.
@@ -24,7 +24,7 @@ def pages(request, url):
     try:
         url = Url.objects.filter(url=url)[0]
         text = choice([i.text for i in Text.objects.filter(url=url)])
-        text = choice(generate_all_sentences(text))
+        text = spintax.spin(text)
         context = {"text": text}
     except Url.DoesNotExist:
         raise Http404("Page does not exist")
