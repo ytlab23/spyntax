@@ -11,7 +11,7 @@ mysqlclient==2.1.1
 python-dateutil==1.5
 requests==2.28.2
 soupsieve==2.3.2.post1
-spyntax==0.2
+spintax==1.0.4
 sqlparse==0.4.3
 urllib3==1.26.14
 validators==0.20.0
