@@ -26,7 +26,7 @@ body {
 }
 
 blockquote {
-  line-height: 1.5;
+  line-height: 2;
 	font-weight: 100;
 	font-size: 2rem;
 	max-width: 600px;
@@ -34,16 +34,18 @@ blockquote {
 	position: relative;
 	margin: 0;
 	padding: .5rem;
+  white-space: pre-wrap;
 }
 
 #o:before,
 #o:after {
-  line-height: 1.5;
+  line-height: 2;
 	position: absolute;
 	color: #f1efe6;
 	font-size: 8rem;
 	width: 4rem;
 	height: 4rem;
+  white-space: pre-wrap;
 }
 
 #o:before {
@@ -61,7 +63,8 @@ blockquote {
      cursor:pointer;
 }
  #pop-up {
-  line-height: 1.5;
+  white-space: pre-wrap;
+  line-height: 2;
     display: block;
     position: absolute;
     opacity:0%;
