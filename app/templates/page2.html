@@ -14,6 +14,7 @@ html, body {
 }
 
 body {
+  padding-top: 40px;
 	font-family: 'Special Elite', cursive;
 	background: #fffdf5;
 	color: #3f3f5a;
@@ -21,7 +22,6 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	text-transform: uppercase;
 }
 
 blockquote {
@@ -60,12 +60,10 @@ blockquote {
  #pop-up {
     display: block;
     position: absolute;
-    top: 30%;
-    left: 50%;
     opacity:0%;
-    transform: translate(-50%, -50%);
-    transition: opacity 1000ms ease;
-    padding: 10px 20px;
+    width: 50%;
+    transform: translate(-90%, -90%);
+    transition: opacity font-size 1000ms ease;
     border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
@@ -73,9 +71,7 @@ blockquote {
 
   @media screen and (max-width: 800px) {
   #pop-up {
-    width: 100%;
-    top: 10%;
-    padding:2px 2px 2px 200px;
+    width: 60%;
   }
   blockquote {
   font-weight: 100;
@@ -99,12 +95,12 @@ cite {
 </head>
 <body >
 
-	<div id="pop-up">Copied to Clipboard</div>
+
 <div id="text">
 <section class="wrapper">
 
   {%if text%}
- <blockquote id="content" ><div id="o">{{text}}</div><i id="copy-btn" class="fa fa-copy" style="padding-left: 90%;color: #767d9f;"></i></blockquote>
+ <blockquote id="content" ><div id="o">{{text}}</div><i id="copy-btn" class="fa fa-copy" style="padding-left: 90%;color: #767d9f;"> <div id="pop-up">Copied!!</div></i></blockquote>
   {%else%}
 	<blockquote id="content" >lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam eveniet dicta laborum ut necessitatibus. Pariatur, illum. Consequatur porro nemo voluptatum similique nam, perspiciatis velit accusamus exercitationem optio necessitatibus libero odio?
 	<i id="copy-btn" class="fa fa-copy"></blockquote>
@@ -116,20 +112,38 @@ cite {
   const content = document.querySelector('#content');
    const leyuskc = document.querySelector('#pop-up');
   copyBtn.addEventListener('click', function() {
-    navigator.clipboard.writeText(content.textContent).then(function() {
-    	leyuskc.innerText = "Copied to Clipboard"
-    	leyuskc.style.opacity = '100%';
+    navigator.clipboard.writeText(content.textContent.slice(0,content.textContent.length-9)).then(function() {
+    	leyuskc.innerText = "Copied!!"
+    	leyuskc.style.opacity = '90%';
       setTimeout(function() {
         leyuskc.style.opacity='0%';
-      }, 1000);
+      }, 1500);
     }, function(err) {
     	leyuskc.innerText = "Copy Permission was denied Please copy manually-leyuskc"
       leyuskc.style.opacity = '100%';
       setTimeout(function() {
         leyuskc.style.opacity='0%';
-      }, 1000);
+      }, 1500);
     });
   });
+
+function adjustFontSize() {
+  const body = document.querySelector('blockquote');
+  const pop = document.querySelector('#pop-up');
+  const contentWidth = body.scrollWidth;
+  const contentHeight = body.scrollHeight;
+  const viewportWidth = window.innerWidth; 
+  const fontSize = [30,18 * (viewportWidth / ((contentWidth+contentHeight)/2)),16].sort((a,b)=>a-b)[1];
+  body.style.fontSize = `${Math.floor(fontSize)}px`;
+  const contentWidth2 = pop.scrollWidth;
+  const viewportWidth2 = window.innerWidth; 
+  const fontSize2 = [16,14 * (viewportWidth2 / contentWidth2)].sort((a,b)=>a-b)[0];
+  pop.style.fontSize = `${fontSize2}px`; 
+  console.log([30,10 * (viewportWidth / contentWidth)])
+}
+
+window.addEventListener('load', adjustFontSize);
+window.addEventListener('resize', adjustFontSize);
 </script>
 
 </body>
