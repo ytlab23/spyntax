@@ -27,10 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
-    "*.herokuapp.com",
-    "sypntax.org",
+    ".herokuapp.com",
     "spyntax-app.herokuapp.com",
     "spyntax.org",
+    ".spyntax.org",
+    "www.spyntax.org",
     "*",
 ]
 
