@@ -26,15 +26,25 @@ SECRET_KEY = "django-insecure-tbrtszg*rrtgoldc6m&r!s-trd)ov0#_(c02xs@jo2896e)dvx
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "localhost",
-    ".herokuapp.com",
-    "spyntax-app.herokuapp.com",
-    "spyntax.org",
-    ".spyntax.org",
-    "www.spyntax.org",
+    # "localhost",
+    # "*.herokuapp.com",
+    # "sypntax.org",
+    # "spyntax-app.herokuapp.com",
+    # "spyntax.org",
     "*",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.sypntax.org', 
+    'https://www.sypntax.org',
+    'http://*.sypntax.org',
+    'http://www.sypntax.org',
+    "http://*.herokuapp.com",
+    "https://*.herokuapp.com",
+    "https://*.*"
+
+
+ ]
 
 # Application definition
 
@@ -54,7 +64,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
+    #"django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
