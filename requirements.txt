@@ -16,3 +16,4 @@ sqlparse==0.4.3
 urllib3==1.26.14
 validators==0.20.0
 whitenoise==5.3.0
+django-cors-headers
