@@ -28,17 +28,17 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "localhost",
     ".herokuapp.com",
-    "sypntax.org",
+    "spyntax.org",
     "spyntax-app.herokuapp.com",
     ".spyntax.org",
     "*",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.sypntax.org', 
-    'https://www.sypntax.org',
-    'http://*.sypntax.org',
-    'http://www.sypntax.org',
+    'https://*.spyntax.org', 
+    'https://www.spyntax.org',
+    'http://*.spyntax.org',
+    'http://www.spyntax.org',
     "http://*.herokuapp.com",
     "https://*.herokuapp.com",
     "https://*.*"
