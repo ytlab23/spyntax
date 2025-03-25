@@ -108,7 +108,7 @@ DATABASES = {
         "NAME": "smart_spyntax",
         "USER": "smart_spyntax",
         "PASSWORD": "C5CcWSSXMjhTX8k",
-        "HOST": "162.213.121.208",
+        "HOST": "162.244.94.241",
         "PORT": "3306",
     }
 }
